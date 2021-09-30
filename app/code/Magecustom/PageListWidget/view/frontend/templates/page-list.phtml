@@ -1,0 +1,21 @@
+<?php
+/** @var \Magecustom\PageListWidget\Block\Widget\PageList $block */
+
+$pages = $block->getPages();
+$title = $block->getTitle();
+?>
+<div class="widget block-mage-custom-pagelist">
+    <?php if($title): ?>
+        <h3><strong class="title"><?= $title; ?></strong></h3>
+    <?php endif ?>
+
+    <?php if($pages[0]): ?>
+        <ul>
+        <?php foreach ($pages as $page) : ?>
+            <li>
+                <a href="<?= $page['identifier']; ?>"><?= $page["title"]; ?></a>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
+</div>

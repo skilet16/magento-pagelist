@@ -1,0 +1,29 @@
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="Magecustom\PageListWidget\Block\Widget\PageList" id="page_list_widget">
+        <label>CMS Page List</label>
+        <description>Displays CMS page list</description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="false" visible="true" sort_order="10">
+                <label>Title</label>
+            </parameter>
+            <parameter name="display_mode" xsi:type="select" required="true" visible="true" sort_order="20">
+                <label>Display Mode</label>
+                <options>
+                    <option name="all_page" value="all_page">
+                        <label>All Pages</label>
+                    </option>
+                    <option name="specific_page" value="specific_page">
+                        <label>Specific Pages</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="selected_page" xsi:type="multiselect" required="true" visible="true" sort_order="30" source_model="Magento\Cms\Model\Config\Source\Page">
+                <label>Selected Pages</label>
+                <depends>
+                    <parameter name="display_mode" value="specific_page" />
+                </depends>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
